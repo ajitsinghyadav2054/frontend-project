@@ -53,14 +53,19 @@ const FreeTrialModal = ({ open, onClose, onSubmit }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-start justify-between gap-4">
-          <div>
-            <h3 className="text-lg sm:text-xl font-semibold leading-tight">Start your free trial</h3>
-            <p className="text-sm text-gray-600 mt-1">Fill the form and we'll get back to you shortly.</p>
+          <div className="group">
+            <h3 className="text-lg sm:text-xl font-semibold leading-tight bg-gradient-to-r from-[#6F3CFF] to-[#7B3DFE] bg-clip-text text-transparent">
+              Start your free trial
+            </h3>
+            <div className="mt-2">
+              <p className="text-sm text-gray-600">Fill the form and we'll get back to you shortly.</p>
+              <div className="mt-3 h-1 w-16 rounded-full bg-gradient-to-r from-[#6F3CFF] to-[#7B3DFE] transform transition-all duration-700 ease-out" aria-hidden />
+            </div>
           </div>
           <button
             onClick={onClose}
             aria-label="Close dialog"
-            className="ml-2 p-2 rounded-md text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[#7B3DFE]/30"
+            className="ml-2 p-2 rounded-md flex border-solid border border-gray-400 bg-white cursor-pointer text-gray-500 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[#7B3DFE]/30 transition transform hover:-translate-y-0.5"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
               <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -139,16 +144,16 @@ const FreeTrialModal = ({ open, onClose, onSubmit }) => {
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 rounded-md text-sm font-medium border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[#7B3DFE]/20"
+              className="px-4 py-2 cursor-pointer rounded-md text-sm font-medium border-solid border border-gray-400 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[#7B3DFE]/20 transition transform hover:-translate-y-0.5 hover:shadow-sm active:translate-y-0"
             >
               Cancel
             </button>
 
             <button
               type="submit"
-              className="relative inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-semibold text-white bg-gradient-to-r from-[#6F3CFF] to-[#7B3DFE] shadow-md overflow-hidden focus:outline-none focus:ring-4 focus:ring-[#d9c9ff]/40"
+              className="group relative inline-flex cursor-pointer items-center gap-2 px-4 py-2 rounded-md text-sm font-semibold border-none text-white bg-gradient-to-r from-[#6F3CFF] to-[#7B3DFE] shadow-md overflow-hidden focus:outline-none focus:ring-4 focus:ring-[#d9c9ff]/40 transition transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-xl active:translate-y-0"
             >
-              <span className="pointer-events-none absolute inset-0 -translate-x-full border-none group-hover:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/25 to-transparent" aria-hidden></span>
+              <span className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/25 to-transparent" aria-hidden></span>
               <span className="relative z-10">Submit</span>
               <svg className="w-4 h-4 relative z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
                 <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 5l7 7-7 7" />

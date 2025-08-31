@@ -43,7 +43,7 @@ const HeroWhyChooseUs = () => {
             return (
                 <div
                   key={it.id}
-                  className={`bg-white rounded-2xl border border-solid border-gray-100 p-4 sm:p-6 shadow-sm transition-shadow hover:shadow-md focus-within:shadow-md self-start`}> 
+                  className={`bg-white rounded-2xl border border-solid border-gray-300 p-4 sm:p-6 shadow-sm transition-shadow hover:shadow-md focus-within:shadow-md self-start`}> 
                 <div 
                   className="flex items-start justify-between gap-3 sm:gap-4 cursor-pointer sm:cursor-default"
                   role="button"

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import FreeTrialModal from './FreeTrialModal';
 
 const LINKS = [
   { name: 'Why', href: '#why' },
@@ -11,6 +12,7 @@ const LINKS = [
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeHash, setActiveHash] = useState(typeof window !== 'undefined' ? window.location.hash : '');
+  const [trialOpen, setTrialOpen] = useState(false);
 
   useEffect(() => {
     const onHash = () => setActiveHash(window.location.hash);
@@ -56,6 +58,7 @@ const Navbar = () => {
   };
 
   return (
+    <>
     <nav className="w-full bg-white">
       <div className="max-w-7xl mx-auto px-6 py-3 sm:py-4 flex items-center justify-between">
         {/* Left: logo + brand */}
@@ -89,6 +92,7 @@ const Navbar = () => {
                        transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0
                        focus:outline-none focus-visible:ring-4 focus-visible:ring-[#d9c9ff]/40 cursor-pointer"
             aria-label="Start Free"
+            onClick={() => { setTrialOpen(true); setMenuOpen(false); }}
           >
             <span className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/30 to-transparent" aria-hidden></span>
             <span className="relative z-[1] inline-flex items-center gap-2">
@@ -142,6 +146,7 @@ const Navbar = () => {
               className="group relative overflow-hidden w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border-none
                          bg-gradient-to-r from-[#824BFF] to-[#7B3DFE] text-white text-base font-semibold shadow-md
                          active:translate-y-px focus:outline-none focus-visible:ring-4 focus-visible:ring-[#d9c9ff]/40 cursor-pointer"
+              onClick={() => { setTrialOpen(true); setMenuOpen(false); }}
             >
               <span
                 className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full group-active:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/30 to-transparent"
@@ -158,6 +163,18 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+      {trialOpen && (
+        <FreeTrialModal
+          open={trialOpen}
+          onClose={() => setTrialOpen(false)}
+          onSubmit={(data) => {
+            // keep minimal handling here; FreeTrialModal already shows a toast
+            console.log('Free trial submitted from Navbar modal:', data);
+            setTrialOpen(false);
+          }}
+        />
+      )}
+    </>
   );
 };
 
