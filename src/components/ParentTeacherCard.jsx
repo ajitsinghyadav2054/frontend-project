@@ -12,7 +12,7 @@ const ParentTeacherCard = () => {
   };
 
   return (
-  <section className="w-full">
+  <section id="for-parents" className="w-full">
       <div className="max-w-7xl mx-auto px-6 py-10">
     <div className="rounded-2xl bg-gradient-to-r from-[#FBFDFF] via-[#F7F6FF] to-[#F6FFFD] p-5 sm:p-8 shadow-lg border border-solid border-transparent transition duration-300 ease-in-out transform md:hover:-translate-y-0.5 md:hover:shadow-xl hover:border-[#E9D5FF] focus-within:ring-4 focus-within:ring-[#d9c9ff]/40">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">

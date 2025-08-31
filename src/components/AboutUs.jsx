@@ -46,7 +46,7 @@ const AboutUs = () => {
   };
 
   return (
-    <section className="w-full bg-white">
+  <section id="features" className="w-full bg-white">
       <div className="max-w-7xl mx-auto px-6 py-10 sm:py-12">
         <div className="mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Built for Kids, Loved by Parents</h2>

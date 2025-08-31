@@ -30,6 +30,31 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
+  const handleNavClick = (e, href) => {
+    // smooth scroll to section referenced by href (e.g. '#programs')
+    e.preventDefault();
+    const id = href.startsWith('#') ? href.slice(1) : href;
+    const el = document.getElementById(id);
+    if (el) {
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // remove persistent focus outline after click without changing visual focus styles
+  try { e.currentTarget && e.currentTarget.blur(); } catch (err) { /* ignore */ }
+      try {
+        // update URL without jumping
+        window.history.replaceState(null, '', href);
+      } catch (err) {
+        // ignore
+      }
+      setActiveHash(href);
+      setMenuOpen(false);
+    } else {
+      // fallback to default behaviour
+      setMenuOpen(false);
+  try { e.currentTarget && e.currentTarget.blur(); } catch (err) { /* ignore */ }
+      window.location.href = href;
+    }
+  };
+
   return (
     <nav className="w-full bg-white">
       <div className="max-w-7xl mx-auto px-6 py-3 sm:py-4 flex items-center justify-between">
@@ -49,7 +74,7 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
-              onClick={handleLinkClick}
+              onClick={(e) => handleNavClick(e, l.href)}
               className={`no-underline text-base font-semibold transform transition duration-300 ease-in-out hover:-translate-y-0.4 hover:scale-[1.01] hover:underline hover:decoration-1 hover:decoration-[#4b1fcf] hover:underline-offset-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7B3DFE] px-1 ${
                 activeHash === l.href ? 'text-[#4b1fcf]' : 'text-[#7B3DFE] hover:text-[#4b1fcf]'
               }`}
@@ -102,7 +127,7 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
-              onClick={handleLinkClick}
+              onClick={(e) => handleNavClick(e, l.href)}
               className={`block no-underline text-base font-medium px-3 py-2 rounded-md transform transition duration-300 ease-in-out hover:-translate-y-0.4 hover:scale-[1.01] hover:underline hover:decoration-1 hover:decoration-[#4b1fcf] hover:underline-offset-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7B3DFE] ${
                 activeHash === l.href ? 'text-[#4b1fcf]' : 'text-gray-700 hover:text-[#4b1fcf]'
               }`}

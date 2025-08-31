@@ -5,7 +5,9 @@ const HeroSection = () => {
   return (
     <div>
       <HeroIntro />
-      <HeroWhyChooseUs />
+      <section id="why">
+        <HeroWhyChooseUs />
+      </section>
     </div>
   )
 }

@@ -31,7 +31,7 @@ const PROGRAMS = [
 
 const Programs = () => {
   return (
-    <section className="w-full bg-white">
+    <section id="programs" className="w-full bg-white">
       <div className="max-w-7xl mx-auto px-6 py-10 sm:py-12">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2">Programs for Every Age</h2>
         <p className="text-sm sm:text-base text-gray-600 mb-8">Pick a track or mix and match. Each program grows with your child.</p>
